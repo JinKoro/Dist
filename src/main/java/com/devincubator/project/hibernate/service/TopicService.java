@@ -47,8 +47,8 @@ public class TopicService implements Service<Topic> {
 
     @Override
     @Transactional
-    public List<Topic> findAll(Class T) {
-        return daoRepos.findAll(T);
+    public List<Topic> findAll() {
+        return daoRepos.findAll();
     }
 
 }

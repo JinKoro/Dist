@@ -44,7 +44,7 @@ public class LiteratureService implements Service<Literature> {
 
     @Override
     @Transactional
-    public List<Literature> findAll(Class T) {
-        return this.daoRepos.findAll(T);
+    public List<Literature> findAll() {
+        return this.daoRepos.findAll();
     }
 }

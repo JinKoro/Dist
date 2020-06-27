@@ -10,11 +10,17 @@
 <html>
 <head>
     <title>Title</title>
+<%--    <style>
+        <%@include file='' %>
+        <%@include file='style/bootstrap.min.css'%>
+    </style>--%>
 </head>
 <body>
 <a href="<c:url value= "/goHomeAdmin" />">Create test</a>
 <a href="<c:url value="/goHomeAdmin"/>">Statistic</a>
 <a href="<c:url value="/goHomeAdmin"/>">Create user</a>
+
+<a href="<c:url value="/logout"/>">Log off</a>
 <form action="/goHomeAdmin">
     <input type="submit" value="Back">
 </form>

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Denied</title>
@@ -17,7 +18,7 @@
 </head>
 <body>
 <h1>Access Denied</h1>
-<a href="<c:url value="/login"/>">Login</a>
+<a href="<c:url value="/login"/>">Log in</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

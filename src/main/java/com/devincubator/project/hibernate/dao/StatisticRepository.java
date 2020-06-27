@@ -49,7 +49,7 @@ public class StatisticRepository implements DaoRepos<Statistic> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Statistic> findAll(Class Statistic) {
+    public List<Statistic> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Statistic ").list();
     }

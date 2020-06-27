@@ -47,7 +47,7 @@ public class TopicRepository implements DaoRepos<Topic> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Topic> findAll(Class T) {
+    public List<Topic> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Topic").list();
     }

@@ -48,7 +48,7 @@ public class TestRepository implements DaoRepos<Test> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Test> findAll(Class T) {
+    public List<Test> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Test").list();
     }

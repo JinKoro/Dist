@@ -4,15 +4,15 @@ import com.devincubator.project.hibernate.dao.DaoRepos;
 import com.devincubator.project.hibernate.model.Role;
 import com.devincubator.project.hibernate.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@org.springframework.stereotype.Service
 public class RoleService implements Service<Role>{
     private DaoRepos<Role> daoRepos;
 
-    @Autowired
     public void setDaoRepos(DaoRepos<Role> daoRepos) {
         this.daoRepos = daoRepos;
     }
@@ -43,7 +43,9 @@ public class RoleService implements Service<Role>{
 
     @Override
     @Transactional
-    public List<Role> findAll(Class T) {
-        return this.daoRepos.findAll(T);
+    public List<Role> findAll() {
+        return this.daoRepos.findAll();
     }
+
+
 }

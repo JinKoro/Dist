@@ -1,5 +1,10 @@
 package com.devincubator.project.hibernate.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,18 +18,22 @@ public class Question {
     @Column
     private String description;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "question",fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Answer> answers;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "question",fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Literature> literature;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name="testId",nullable = false)
+    @JoinColumn(name="testId",nullable = false,insertable=false, updatable=false)
     private Test test;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name="questionId",nullable = false)
+    @JoinColumn(name="questionId",nullable = false,insertable=false, updatable=false)
     private Statistic statistic;
 
     public Question() {

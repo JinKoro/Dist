@@ -51,7 +51,7 @@ public class QuestionRepository implements DaoRepos<Question> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Question> findAll(Class question) {
+    public List<Question> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Question").list();
     }

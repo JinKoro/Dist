@@ -1,5 +1,8 @@
 package com.devincubator.project.hibernate.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +19,7 @@ public class Answer {
 
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name="questionId",nullable = false)
+    @JoinColumn(name="questionId",nullable = false,insertable=false, updatable=false)
     private Question question;
 
 

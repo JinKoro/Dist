@@ -1,5 +1,10 @@
 package com.devincubator.project.hibernate.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,7 +12,6 @@ import java.util.List;
 @Table(name = "user")
 public class User {
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
     @Column
@@ -19,13 +23,15 @@ public class User {
     @Column
     private String password;
     @Column
-    private String roleName;
+    private String nameRole;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name="roleId",nullable = false)
+    @JoinColumn(name="roleId",nullable = false,insertable=false, updatable=false)
     private Role role;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Statistic> statistics;
 
     public User() {
@@ -71,12 +77,12 @@ public class User {
         this.password = password;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getNameRole() {
+        return nameRole;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setNameRole(String nameRole) {
+        this.nameRole = nameRole;
     }
 
     public Role getRole() {
@@ -99,7 +105,7 @@ public class User {
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (roleName != null ? !roleName.equals(that.roleName) : that.roleName != null) return false;
+        if (nameRole != null ? !nameRole.equals(that.nameRole) : that.nameRole != null) return false;
 
         return true;
     }
@@ -111,7 +117,7 @@ public class User {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (roleName != null ? roleName.hashCode() : 0);
+        result = 31 * result + (nameRole != null ? nameRole.hashCode() : 0);
         return result;
     }
 
@@ -123,7 +129,8 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", roleName='" + roleName + '\'' +
+                ", nameRole='" + nameRole + '\'' +
                 '}';
     }
+
 }

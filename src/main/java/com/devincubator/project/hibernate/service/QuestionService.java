@@ -44,7 +44,7 @@ public class QuestionService implements Service<Question>{
 
     @Override
     @Transactional
-    public List<Question> findAll(Class T) {
-        return this.daoRepos.findAll(T);
+    public List<Question> findAll() {
+        return this.daoRepos.findAll();
     }
 }

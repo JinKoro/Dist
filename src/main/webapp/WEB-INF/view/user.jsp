@@ -10,6 +10,10 @@
 <html>
 <head>
     <title>User</title>
+    <style>
+        <%@include file='style/commonStyle.css' %>
+        <%@include file='style/bootstrap.min.css'%>
+    </style>
 </head>
 <body>
     <a href="<c:url value="/logout"/>">Log off</a>

@@ -1,5 +1,8 @@
 package com.devincubator.project.hibernate.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +17,7 @@ public class Link {
     private String link;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name="literatureId",nullable = false)
+    @JoinColumn(name="literatureId",nullable = false,insertable=false, updatable=false)
     private Literature literature;
 
     public Link() {

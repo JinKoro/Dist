@@ -49,7 +49,7 @@ public class RoleRepository implements DaoRepos<Role>{
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Role> findAll(Class Role) {
+    public List<Role> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Role").list();
     }

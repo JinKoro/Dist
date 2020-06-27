@@ -44,7 +44,7 @@ public class StatisticService implements Service<Statistic> {
 
     @Override
     @Transactional
-    public List<Statistic> findAll(Class T) {
-        return this.daoRepos.findAll(T);
+    public List<Statistic> findAll() {
+        return this.daoRepos.findAll();
     }
 }

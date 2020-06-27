@@ -43,7 +43,7 @@ public class LinkService implements Service<Link> {
 
     @Override
     @Transactional
-    public List<Link> findAll(Class T) {
-        return this.daoRepos.findAll(T);
+    public List<Link> findAll() {
+        return this.daoRepos.findAll();
     }
 }

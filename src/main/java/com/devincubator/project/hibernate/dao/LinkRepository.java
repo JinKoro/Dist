@@ -50,7 +50,7 @@ public class LinkRepository implements DaoRepos<Link>{
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Link> findAll(Class Link) {
+    public List<Link> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Link").list();
     }

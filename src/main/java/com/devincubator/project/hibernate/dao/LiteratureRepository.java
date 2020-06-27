@@ -50,7 +50,7 @@ public class LiteratureRepository implements DaoRepos<Literature> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Literature> findAll(Class Literature) {
+    public List<Literature> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Literature ").list();
     }

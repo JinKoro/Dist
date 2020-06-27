@@ -50,7 +50,7 @@ public class AnswerRepository implements DaoRepos<Answer> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Answer> findAll(Class Answer) {
+    public List<Answer> findAll() {
         Session session = this.sessionFactory.openSession();
         return session.createQuery("from Answer").list();
     }

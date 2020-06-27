@@ -48,7 +48,7 @@ public class HomeController {
         String userName = null;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
-            userName = ((UserDetails) principal).getPassword();
+            userName = String.valueOf(((UserDetails) principal).getUsername());
         } else {
             userName = principal.toString();
         }

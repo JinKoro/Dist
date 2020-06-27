@@ -1,13 +1,11 @@
 package com.devincubator.project.hibernate.dao;
 
-import com.devincubator.project.hibernate.model.Test;
 import com.devincubator.project.hibernate.model.Topic;
 import com.devincubator.project.hibernate.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.w3c.dom.UserDataHandler;
 
 import java.util.List;
 
@@ -51,9 +49,9 @@ public class UserRepository implements DaoRepos<User> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<User> findAll(Class User) {
+    public List<User> findAll() {
         Session session = this.sessionFactory.openSession();
-        return session.createQuery("from User").list();
+        return session.createQuery("from User ").list();
     }
 
     public List<User> findByUserName(String firstName) {

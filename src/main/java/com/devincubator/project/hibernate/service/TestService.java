@@ -44,7 +44,7 @@ public class TestService implements Service<Test>{
 
     @Override
     @Transactional
-    public List<Test> findAll(Class T) {
-        return this.daoRepos.findAll(T);
+    public List<Test> findAll() {
+        return this.daoRepos.findAll();
     }
 }
