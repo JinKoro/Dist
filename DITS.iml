@@ -3,8 +3,12 @@
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
-        <naming-strategy-map />
+        <datasource-map>
+          <unit-entry name="sessionFactory" />
+        </datasource-map>
+        <naming-strategy-map>
+          <unit-entry name="sessionFactoryBean" value="org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl" />
+        </naming-strategy-map>
       </configuration>
     </facet>
   </component>
